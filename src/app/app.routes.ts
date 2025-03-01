@@ -10,7 +10,7 @@ export const routes: Routes = [
     component: AuthLayoutComponent,
     canActivate: [logedGuard],
     children: [
-      { path: '', redirectTo: 'login', pathMatch: 'full' },
+      { path: '', redirectTo: 'register', pathMatch: 'full' },
       { path: 'login', loadComponent: () => import('./Component/login/login.component').then(m => m.LoginComponent) },
       { path: 'register', loadComponent: () => import('./Component/register/register.component').then(m => m.RegisterComponent) },
       { path: 'froget-password', loadComponent: () => import('./Component/froget-password/froget-password.component').then(m => m.FrogetPasswordComponent) }
