@@ -1,27 +1,90 @@
-# App
+ 🛒 E-Commerce Store - Angular 17
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.11.
+ 🚀 Overview
+Welcome to **E-Commerce Store**, a fully functional online shopping platform designed for seamless and secure transactions. This project is built using **Angular 17** for the frontend, consuming a RESTful **API** for backend services. The platform provides a smooth shopping experience with user authentication, product management, cart functionality, and secure payments.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## ✨ Features
+### 🛍️ Shopping & Products
+- View all products with filtering and sorting.
+- Product details page with images, price, and description.
+- Add to cart functionality with real-time cart count.
 
-## Code scaffolding
+### 🔐 Authentication
+- User registration and login with **JWT Authentication**.
+- Role-based access control (Admin & Customer).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 🛒 Shopping Cart
+- Add, remove, and update product quantities in the cart.
+- Cart count updates dynamically.
+- Persist cart state even after page refresh.
 
-## Build
+### 💳 Secure Payments
+- Integration with **Stripe API** for seamless transactions.
+- Order summary before checkout.
+- Order tracking and history.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 📦 Orders Management
+- Customers can view their order history.
+- Admin can manage orders and update statuses.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+## 🔧 Technologies Used
+### **Frontend:** Angular 17
+- Angular 17 + TypeScript
+- RxJS for state management
+- Bootstrap & SCSS for UI
+- Angular Router for navigation
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### **Backend:** RESTful API
+- Consumes a RESTful API for all backend operations.
+- Handles authentication, product management, and orders.
+- Uses **JWT Authentication** for security.
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## 🚀 Getting Started
+### **1️⃣ Clone the Repository**
+```bash
+git clone https://github.com/abda-24/OnlineStore-Angular.git
+cd OnlineStore-Angular
+```
+
+### **2️⃣ Install Dependencies**
+```bash
+npm install
+```
+
+### **3️⃣ Run the Angular App**
+```bash
+ng serve
+```
+- The frontend will be available at **http://localhost:4200/**.
+
+### **4️⃣ Connect to Backend API**
+1. Ensure the backend API is running and accessible.
+2. Update the **API base URL** in the environment file:
+   ```typescript
+   export const environment = {
+       production: false,
+       apiUrl: 'http://localhost:5000/api'
+   };
+   ```
+3. Make sure CORS is enabled on the backend to allow frontend requests.
+
+---
+
+## 🔗 API Documentation
+For detailed API endpoints and request examples, refer to the **Postman API Documentation**:
+[Postman API Docs](https://documenter.getpostman.com/view/5709532/2s93JqTRWN#4f774c92-f954-4b00-892a-8b2db190be45)
+
+
+
+
+## 📩 Contact
+📧 Email:contact.elbana@gmail.com
+🐙 GitHub: [abda-24](https://github.com/abda-24)
+
+
