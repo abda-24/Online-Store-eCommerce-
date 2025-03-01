@@ -1,0 +1,184 @@
+<!-- & SliderMainREASY -->
+<section>
+  <div class="row g-0">
+    <div class="col-md-12 pt-5">
+      <div>
+        <owl-carousel-o [options]="MaincustomOptions">
+          <ng-template carouselSlide>
+            <img
+              src="/assets/images/Slider1.avif"
+              alt=""
+              class="w-100"
+              height="300px"
+            />
+          </ng-template>
+          <ng-template carouselSlide>
+            <img
+              src="/assets/images/2.avif"
+              alt=""
+              class="w-100"
+              height="300px"
+            />
+          </ng-template>
+          <ng-template carouselSlide>
+            <img
+              src="/assets/images/3.avif"
+              alt=""
+              class="w-100"
+              height="300px"
+            />
+          </ng-template>
+          <ng-template carouselSlide>
+            <img
+              src="/assets/images/4.avif"
+              alt=""
+              class="w-100"
+              height="300px"
+            />
+          </ng-template>
+          <ng-template carouselSlide>
+            <img
+              src="/assets/images/5.avif"
+              alt=""
+              class="w-100"
+              height="300px"
+            />
+          </ng-template>
+          <ng-template carouselSlide>
+            <img
+              src="/assets/images/6.avif"
+              alt=""
+              class="w-100"
+              height="300px"
+            />
+          </ng-template>
+          <ng-template carouselSlide>
+            <img
+              src="/assets/images/7.avif"
+              alt=""
+              class="w-100"
+              height="300px"
+            />
+          </ng-template>
+          <ng-template carouselSlide>
+            <img
+              src="/assets/images/8.avif"
+              alt=""
+              class="w-100"
+              height="300px"
+            />
+          </ng-template>
+          <ng-template carouselSlide>
+            <img
+              src="/assets/images/9.avif"
+              alt=""
+              class="w-100"
+              height="300px"
+            />
+          </ng-template>
+          <ng-template carouselSlide>
+            <img
+              src="/assets/images/10.avif"
+              alt=""
+              class="w-100"
+              height="300px"
+            />
+          </ng-template>
+          <ng-template carouselSlide>
+            <img
+              src="/assets/images/11.avif"
+              alt=""
+              class="w-100"
+              height="300px"
+            />
+          </ng-template>
+        </owl-carousel-o>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- *Main Slider -->
+
+<section class="my-2">
+  <h2 class="text-main text-center">Popular Categories</h2>
+  <owl-carousel-o [options]="CustomOptions">
+    @for (cat of categoryList; track cat._id) {
+    <ng-template carouselSlide>
+      <div>
+        <img [src]="cat.image" class="w-100" height="250px" [alt]="cat.name" />
+        <h3>{{ cat.name }}</h3>
+      </div>
+    </ng-template>
+    }
+  </owl-carousel-o>
+</section>
+
+<section class="popular-products py-5">
+  <div class="container">
+    <h2 class="section-title text-center mb-4">Popular Products</h2>
+
+    <!-- Search Input -->
+    <!-- Search Input -->
+    <div class="search-container text-center mb-5">
+      <div class="input-group w-50 mx-auto">
+        <input
+          [(ngModel)]="TextSearch"
+          class="form-control search-input"
+          type="search"
+          placeholder="Search For Products"
+          aria-label="Search"
+        />
+        <button class="btn btn-primary search-button" type="button">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      @for (Product of productList.slice(0, 12) | search:TextSearch; track
+      Product.id) {
+      <div class="col-md-3">
+        <div class="product-card card h-100 shadow-sm">
+          <div
+            [routerLink]="['/detailsProduct', Product.id]"
+            class="text-decoration-none text-dark"
+          >
+            <img
+              [src]="Product.imageCover"
+              [alt]="Product.title"
+              class="product-image card-img-top"
+            />
+            <div class="card-body">
+              <h3 class="small text-main">{{ Product.category.name }}</h3>
+              <h3 class="product-title card-title">
+                {{ Product.title | textTermPipe : 5 }}
+              </h3>
+              <p class="product-description card-text">
+                {{ Product.description | textTermPipe : 10 }}
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="product-price fw-bold"
+                  >{{ Product.price }} EGP</span
+                >
+                <div class="product-rating">
+                  <span><i class="fas fa-star rating-color"></i></span>
+                  <span class="text-muted">{{ Product.ratingsAverage }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer bg-transparent border-0">
+            <button
+              class="btn btn-primary w-100"
+              (click)="AddToCart(Product.id)"
+            >
+              Add To Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section>

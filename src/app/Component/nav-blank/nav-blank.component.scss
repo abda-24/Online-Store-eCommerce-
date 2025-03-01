@@ -1,0 +1,31 @@
+
+
+.social-icons .social-icon {
+  transition: color 0.3s ease;
+}
+
+.social-icons .instagram:hover {
+  color: #e4405f; /* Instagram color */
+}
+
+.social-icons .facebook:hover {
+  color: #1877f2; /* Facebook color */
+}
+
+.social-icons .tiktok:hover {
+  color: #69c9d0; /* TikTok color */
+}
+
+.dropdown-menu {
+  min-width: 120px;
+}
+
+.dropdown-item {
+  cursor: pointer;
+}
+
+
+.badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+}

@@ -1,0 +1,79 @@
+<section class="p-5 bg-light">
+  <h1 class="text-center mb-4 display-4 text-main">Shopping Address</h1>
+  <form [formGroup]="orders" class="container bg-white p-4 rounded shadow" (ngSubmit)="OrdersSubmit()">
+
+    <!-- تفاصيل الطلب -->
+    <div class="mb-3">
+      <label for="details" class="form-label fw-bold">Order Details</label>
+      <input
+        id="details"
+        formControlName="details"
+        class="form-control form-control-lg"
+        placeholder="Enter order details"
+        [ngClass]="{
+          'is-valid': !formControls['details'].errors && formControls['details'].touched,
+          'is-invalid': formControls['details'].errors && formControls['details'].touched
+        }"
+      />
+      @if (formControls['details'].errors && formControls['details'].touched) {
+        <div class="alert alert-danger mt-2">
+          @if (formControls['details'].hasError('required')) {
+            <p class="m-0">Order details are required.</p>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- رقم الهاتف -->
+    <div class="mb-3">
+      <label for="phone" class="form-label fw-bold">Phone Number</label>
+      <input
+        id="phone"
+        formControlName="phone"
+        class="form-control form-control-lg"
+        placeholder="Enter your phone number"
+        [ngClass]="{
+          'is-valid': !formControls['phone'].errors && formControls['phone'].touched,
+          'is-invalid': formControls['phone'].errors && formControls['phone'].touched
+        }"
+      />
+      @if (formControls['phone'].errors && formControls['phone'].touched) {
+        <div class="alert alert-danger mt-2">
+          @if (formControls['phone'].hasError('required')) {
+            <p class="m-0">Phone number is required.</p>
+          }
+          @if (formControls['phone'].hasError('pattern')) {
+            <p class="m-0">Invalid phone number format.</p>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- المدينة -->
+    <div class="mb-3">
+      <label for="city" class="form-label fw-bold">City</label>
+      <input
+        id="city"
+        formControlName="city"
+        class="form-control form-control-lg"
+        placeholder="Enter your city"
+        [ngClass]="{
+          'is-valid': !formControls['city'].errors && formControls['city'].touched,
+          'is-invalid': formControls['city'].errors && formControls['city'].touched
+        }"
+      />
+      @if (formControls['city'].errors && formControls['city'].touched) {
+        <div class="alert alert-danger mt-2">
+          @if (formControls['city'].hasError('required')) {
+            <p class="m-0">City is required.</p>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- زر الإرسال -->
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-primary btn-lg w-100" [disabled]="orders.invalid">Checkout</button>
+    </div>
+  </form>
+</section>

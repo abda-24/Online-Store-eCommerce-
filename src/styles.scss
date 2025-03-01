@@ -1,0 +1,149 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap");
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+@import 'ngx-toastr/toastr';
+
+
+:root {
+  --main-color: #007bff; /* استخدام الأزرق بدلاً من الأخضر */
+  --light-color: #f4f7f6; /* لون فاتح لطيف للخلفيات */
+  --shadow: rgba(0, 123, 255, 0.2) 0px 2px 4px -1px, rgba(0, 123, 255, 0.14) 0px 4px 5px 0px, rgba(0, 123, 255, 0.12) 0px 1px 10px 0px;
+  --font-family: "Encode Sans Expanded", sans-serif, Arial, Helvetica, sans-serif;
+  --rating-color: #ffc908;
+}
+
+body {
+  font-family: var(--font-family) !important;
+  background: linear-gradient(to bottom, #f8f9fa, #e9ecef); /* تدرج لوني خفيف */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  font-size: 16px;
+  transition: all 0.3s ease;
+  color: #333;
+  position: relative; /* لإضافة تأثير تحت الخط */
+}
+
+.nav-link:hover {
+  color: var(--main-color);
+  text-decoration: none; /* إزالة الخط الأفقي */
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--main-color);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%; /* توسيع الخط عند التحويم */
+}
+
+.active-link {
+  background-color: var(--main-color) !important;
+  color: var(--light-color) !important;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف */
+}
+
+.rating-color {
+  color: var(--rating-color);
+}
+
+.cr {
+  cursor: pointer;
+}
+
+a, a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.product {
+  border-radius: 8px;
+  border: solid 1px var(--main-color);
+  transition: box-shadow 0.5s, transform 0.3s ease;
+  overflow: hidden;
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ظل أكثر نعومة */
+}
+
+.product:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* زيادة الظل عند التحويم */
+  transform: translateY(-5px);
+}
+
+.product img {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.9;
+}
+
+.product:hover img {
+  transform: scale(1.05); /* تكبير الصورة قليلاً */
+  opacity: 1;
+}
+
+.font-sm {
+  font-size: 14px; /* تكبير الخط قليلاً */
+}
+
+.text-main {
+  color: var(--main-color);
+}
+
+.bg-main {
+  background-color: var(--main-color) !important;
+}
+
+.bg-main-light {
+  background-color: var(--light-color) !important;
+}
+
+.btn-main {
+  background-color: var(--main-color); /* لون الخلفية */
+  padding: 12px 30px; /* زيادة الحشوة لجعل الزر أكبر */
+  border: 1px solid var(--main-color); /* لون الحدود */
+  border-radius: 8px; /* زيادة نصف قطر الزوايا */
+  color: #fff; /* لون النص */
+  cursor: pointer; /* تغيير شكل المؤشر */
+  transition: all 0.3s ease; /* تأثير انتقال سلس */
+  font-size: 16px; /* حجم النص */
+  font-weight: 600; /* سمك النص */
+  text-transform: uppercase; /* تحويل النص إلى أحرف كبيرة */
+  letter-spacing: 1px; /* زيادة المسافة بين الحروف */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف */
+}
+
+.btn-main:disabled {
+  cursor: not-allowed; /* تغيير شكل المؤشر عند التعطيل */
+  background-color: #ccc; /* لون الخلفية عند التعطيل */
+  border-color: #ccc; /* لون الحدود عند التعطيل */
+  color: #888; /* لون النص عند التعطيل */
+  box-shadow: none; /* إزالة الظل عند التعطيل */
+}
+
+.btn-main:disabled:hover {
+  background-color: #ccc; /* لون الخلفية عند التحويم والتعطيل */
+}
+
+.btn-main:hover {
+  background-color: #0056b3; /* تغيير لون الخلفية عند التحويم */
+  transform: translateY(-3px); /* تأثير حركة للزر */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* زيادة الظل عند التحويم */
+  color: #fff; /* تغيير لون النص إذا لزم الأمر */
+}
+
+.btn-main:active {
+  transform: translateY(0); /* إعادة الزر إلى مكانه عند النقر */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* إعادة الظل إلى حالته الأصلية */
+}

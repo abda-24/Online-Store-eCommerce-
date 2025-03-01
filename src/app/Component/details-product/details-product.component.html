@@ -1,0 +1,50 @@
+@if (deatielsProduct) {
+<section class="container py-4">
+  <h2 class="text-center text-main my-3 fw-bold pt-5">Product Details</h2>
+  <div class="row align-items-center">
+    <!-- Product Images -->
+    <div class="col-md-4">
+      <div class="shadow-lg p-3 rounded bg-white">
+        <owl-carousel-o [options]="carouselOptionsDetails">
+          @for (image of deatielsProduct.images; track image) {
+          <ng-template carouselSlide>
+            <img
+              [src]="image"
+              [alt]="deatielsProduct.title"
+              class="w-100 rounded-3 shadow-sm"
+            />
+          </ng-template>
+          }
+        </owl-carousel-o>
+      </div>
+    </div>
+    <!-- Product Details -->
+    <div class="col-md-8">
+      <div class="p-4 bg-white rounded shadow-lg">
+        <h2 class="fw-bold text-dark">{{ deatielsProduct.title }}</h2>
+        <p class="text-muted fs-5">{{ deatielsProduct.description }}</p>
+        <h3 class="h6 text-main fw-semibold">
+          {{ deatielsProduct.category.name }}
+        </h3>
+        <div class="d-flex justify-content-between align-items-center my-3">
+          <span class="fs-4 fw-bold text-success"
+            >{{ deatielsProduct.price }} EGP</span
+          >
+          <div>
+            <span><i class="fas fa-star rating-color"></i></span>
+            <span class="fw-semibold text-muted">{{
+              deatielsProduct.ratingsAverage
+            }}</span>
+          </div>
+        </div>
+        <button
+          (click)="AddToCart(deatielsProduct._id)"
+          class="btn btn-primary w-100 py-2 fw-semibold"
+        >
+          Add To Cart
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+}

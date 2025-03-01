@@ -1,0 +1,61 @@
+<section class="bg-main-light rounded-4 p-4 my-4 shadow-lg">
+  <div class="d-flex align-items-center justify-content-between pt-5">
+    <h2 class="h2 text-center mb-4 text-main">ShopCart</h2>
+    <button (click)="ClearAllCart()" class="btn btn-outline-danger">
+      Clear all Products in Cart
+    </button>
+  </div>
+  <p class="text-center fs-5 text-muted">
+    Total Cart Price:
+    <strong class="text-main">{{
+      CartDetails.totalCartPrice | currency : "GBP"
+    }}</strong>
+  </p>
+  @for (ProductsCart of CartDetails.products; track ProductsCart._id) {
+  <div class="row align-items-center pb-3 mb-3 border-bottom">
+    <!-- Product Image -->
+    <div class="col-md-1">
+      <img
+        [src]="ProductsCart.product.imageCover"
+        [alt]="ProductsCart.product.title"
+        class="img-fluid rounded-3"
+      />
+    </div>
+    <!-- Product Details -->
+    <div class="col-md-11">
+      <h3 class="h5 mb-2">{{ ProductsCart.product.title }}</h3>
+      <p class="text-main mb-1">
+        Price: {{ ProductsCart.price | currency : "GBP" }}
+      </p>
+      <p class="text-muted mb-1">Quantity: {{ ProductsCart.count }}</p>
+    </div>
+    <!-- Actions -->
+    <div class="d-flex align-items-center justify-content-between">
+      <!-- Remove Button on the left -->
+      <button
+        (click)="removeItem(ProductsCart.product._id)"
+        class="btn btn-danger btn-sm"
+      >
+        <i class="fa-solid fa-trash me-1 cr"></i> Remove
+      </button>
+      <!-- Plus & Minus Buttons on the right -->
+      <div class="d-flex align-items-center gap-2 cr">
+        <span
+          (click)="UpdateCart(ProductsCart.product._id, ProductsCart.count + 1)"
+          class="me-2 text-main"
+          ><i class="fa-solid fa-circle-plus text-main fa-2xl"></i
+        ></span>
+        <span>{{ ProductsCart.count }}</span>
+        <span
+          (click)="UpdateCart(ProductsCart.product._id, ProductsCart.count - 1)"
+          class="ms-2 text-main"
+          ><i class="fa-solid fa-circle-minus text-main fa-2xl"></i
+        ></span>
+      </div>
+    </div>
+  </div>
+  }
+  <button [routerLink]="['/orders', CartDetails._id]" class="btn-main mt-2">
+    Orders
+  </button>
+</section>

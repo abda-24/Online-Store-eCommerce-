@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <h1 class="text-center pt-5 text-main">Brands</h1>
+
+  <!-- Brands List -->
+  @if (!isLoading && !errorMessage) {
+    <div class="row">
+      @for (brand of brands; track brand._id) {
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <!-- Brand Image -->
+            <img
+              [src]="brand.image"
+              class="card-img-top"
+              alt="{{ brand.name }}"
+              style="height: 150px; object-fit: cover;"
+            />
+            <div class="card-body">
+              <h5 class="card-title">{{ brand.name }}</h5>
+              <p class="card-text">{{ brand.description}}</p>
+              <a href="#" class="btn btn-primary btn-sm">View Details</a>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  }
+
+</div>

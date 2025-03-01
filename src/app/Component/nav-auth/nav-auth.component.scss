@@ -1,0 +1,50 @@
+
+/* تحسين الروابط */
+.nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* تأثير الهوفر على الروابط */
+.nav-link:hover {
+  color: #007bff; /* لون الهوفر */
+}
+
+/* تأثير التركيز (Focus) بدون outline */
+.nav-link:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* ظل أزرق */
+}
+
+/* تحسين الأيقونات */
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-left: 10px;
+}
+
+.social-icon {
+  font-size: 24px;
+  transition: all 0.3s ease;
+}
+
+
+.social-icon:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+/* ألوان الأيقونات */
+.fa-instagram {
+  color: #E4405F;
+}
+
+.fa-facebook-f {
+  color: #1877F2;
+}
+
+.fa-tiktok {
+  color: #000000;
+}
+
+
