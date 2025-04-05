@@ -41,6 +41,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   // & SliderMain
 
+
+  // * SliderMan Categories
+
   MaincustomOptions = {
     loop: true,
     mouseDrag: true,
@@ -57,39 +60,34 @@ export class HomeComponent implements OnInit, OnDestroy {
     nav: false,
   };
 
-  // * SliderMan Categories
 
-  CustomOptions: OwlOptions = {
+
+
+
+  customOptions:OwlOptions= {
     loop: true,
     mouseDrag: true,
     touchDrag: true,
-    pullDrag: true,
-    dots: false,
-    rtl: true,
+    pullDrag: false,
     autoplay: true,
     autoplayTimeout: 3000,
+    autoplaySpeed: 1000, // Faster transitions
     autoplayHoverPause: true,
+    dots: false,
     navSpeed: 700,
     navText: [
       '<i class="fa fa-chevron-left"></i>',
-      '<i class="fa fa-chevron-right"></i>',
+      '<i class="fa fa-chevron-right"></i>'
     ],
     responsive: {
-      0: {
-        items: 1,
-      },
-      400: {
-        items: 2,
-      },
-      740: {
-        items: 3,
-      },
-      940: {
-        items: 6,
-      },
+      0: { items: 1 },
+      576: { items: 2 },
+      768: { items: 3 },
+      992: { items: 4 }
     },
-    nav: true,
+    nav: true
   };
+
 
   ngOnInit(): void {
     this._GetAllCategoriesService.GetAllCategories().subscribe({

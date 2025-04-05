@@ -1,184 +1,360 @@
-<!-- & SliderMainREASY -->
-<section>
-  <div class="row g-0">
-    <div class="col-md-12 pt-5">
-      <div>
-        <owl-carousel-o [options]="MaincustomOptions">
-          <ng-template carouselSlide>
-            <img
-              src="/assets/images/Slider1.avif"
-              alt=""
-              class="w-100"
-              height="300px"
-            />
-          </ng-template>
-          <ng-template carouselSlide>
-            <img
-              src="/assets/images/2.avif"
-              alt=""
-              class="w-100"
-              height="300px"
-            />
-          </ng-template>
-          <ng-template carouselSlide>
-            <img
-              src="/assets/images/3.avif"
-              alt=""
-              class="w-100"
-              height="300px"
-            />
-          </ng-template>
-          <ng-template carouselSlide>
-            <img
-              src="/assets/images/4.avif"
-              alt=""
-              class="w-100"
-              height="300px"
-            />
-          </ng-template>
-          <ng-template carouselSlide>
-            <img
-              src="/assets/images/5.avif"
-              alt=""
-              class="w-100"
-              height="300px"
-            />
-          </ng-template>
-          <ng-template carouselSlide>
-            <img
-              src="/assets/images/6.avif"
-              alt=""
-              class="w-100"
-              height="300px"
-            />
-          </ng-template>
-          <ng-template carouselSlide>
-            <img
-              src="/assets/images/7.avif"
-              alt=""
-              class="w-100"
-              height="300px"
-            />
-          </ng-template>
-          <ng-template carouselSlide>
-            <img
-              src="/assets/images/8.avif"
-              alt=""
-              class="w-100"
-              height="300px"
-            />
-          </ng-template>
-          <ng-template carouselSlide>
-            <img
-              src="/assets/images/9.avif"
-              alt=""
-              class="w-100"
-              height="300px"
-            />
-          </ng-template>
-          <ng-template carouselSlide>
-            <img
-              src="/assets/images/10.avif"
-              alt=""
-              class="w-100"
-              height="300px"
-            />
-          </ng-template>
-          <ng-template carouselSlide>
-            <img
-              src="/assets/images/11.avif"
-              alt=""
-              class="w-100"
-              height="300px"
-            />
-          </ng-template>
-        </owl-carousel-o>
+
+<!-- Main Section with Sidebar -->
+<section class="mb-5">
+  <div class="row">
+    <div class="col-md-2 d-none d-md-block">
+      <div class="sidebar border-end">
+        <ul class="list-unstyled py-3">
+          @for (cat of categoryList; track cat._id) {
+            <li class="my-2 d-flex align-items-center justify-content-between pe-5">
+              <a href="#" class="text-dark text-decoration-none flex-grow-1 d-inline-block">{{cat.name}}</a>
+              <i class="fa-solid fa-angle-right"></i>
+            </li>
+          }
+        </ul>
       </div>
+    </div>
+    <div class="col-md-10 py-4 ps-md-5">
+      <owl-carousel-o [options]="MaincustomOptions">
+        <ng-template carouselSlide>
+          <div class="bg-black rounded-1 pt-2">
+            <div class="row">
+              <div class="col-md-6 d-flex align-items-center justify-content-center">
+                <div class="text-inner text-white p-4">
+                  <span class="d-flex align-items-center gap-3">
+                    <i class="display-6 fa-brands fa-apple"></i>
+                    <span style="font-size: 14px;">iPhone 14 Series</span>
+                  </span>
+                  <h1 style="line-height: 60px;">Up to 10% <br>off Voucher</h1>
+                  <a href="#" class="text-decoration-none text-white">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div style="height: 315px;">
+                  <img src="/assets/images/7215f42e5883a64157f0aa3a4d1a866a.jpeg" class="object-fit-contain w-100 h-100" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+        <ng-template carouselSlide>
+          <div class="bg-black rounded-1 pt-2">
+            <div class="row">
+              <div class="col-md-6 d-flex align-items-center justify-content-center">
+                <div class="text-inner text-white p-4">
+                  <span class="d-flex align-items-center gap-3">
+                    <i class="display-6 fa-brands fa-apple"></i>
+                    <span style="font-size: 14px;">iPhone 14 Series</span>
+                  </span>
+                  <h1 style="line-height: 60px;">Up to 10% <br>off Voucher</h1>
+                  <a href="#" class="text-decoration-none text-white">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div style="height: 315px;">
+                  <img src="/assets/images/category-phones.webp" class="object-fit-contain w-100 h-100" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </owl-carousel-o>
     </div>
   </div>
 </section>
 
-<!-- *Main Slider -->
+<!-- Today's Sales Section -->
+<section class="my-5 py-5">
+  <div class="d-flex align-items-center mb-5">
+    <div class="header"></div>
+    <span class="ms-2 main-color fw-semibold">Today's</span>
+  </div>
 
-<section class="my-2">
-  <h2 class="text-main text-center">Popular Categories</h2>
-  <owl-carousel-o [options]="CustomOptions">
+  <owl-carousel-o [options]="customOptions">
+    @for (product of productList.slice(0,10); track product._id) {
+    <ng-template carouselSlide>
+      <div class="px-2">
+        <div class="card border-0 position-relative hover-shadow h-100">
+          <div class="position-relative">
+            <img [src]="product.imageCover" class="card-img-top" [alt]="product.title">
+            <button (click)="AddToCart(product._id)"
+                    class="position-absolute bg-black text-white py-2 border-0 opacity-0 transition-opacity rounded-1 hover:opacity-100"
+                    style="bottom: 0;width: 90%; left: 50%; transform: translateX(-50%); transition-duration: .4s;">
+              <i class="fa-solid fa-cart-plus"></i> Add To Cart
+            </button>
+          </div>
+          <div class="card-body">
+            <h6 class="card-text">{{product.title}}</h6>
+            <div class="price my-2">
+              <span class="text-danger fw-bold">{{product.price}}$</span>
+              <span class="text-muted text-decoration-line-through ms-2">$300</span>
+            </div>
+            <p class="mb-0">
+              <i class="text-warning fa-solid fa-star"></i>
+              <i class="text-warning fa-solid fa-star"></i>
+              <i class="text-warning fa-solid fa-star"></i>
+              <i class="text-warning fa-solid fa-star"></i>
+              <i class="text-warning fa-solid fa-star-half-stroke"></i>
+              <span class="text-muted">({{product.ratingsQuantity}})</span>
+            </p>
+          </div>
+          <div class="sale position-absolute mt-3">
+            <span class="badge text-bg-danger">sale</span>
+          </div>
+          <div class="view position-absolute d-flex flex-column gap-2 mt-3">
+            <span type="button" (click)="AddToCart(product._id)" class="badge text-bg-light rounded-circle p-2 fs-6">
+              <i class="fa-regular fa-heart"></i>
+            </span>
+            <span type="button" [routerLink]='["/productDetails",product._id]' class="badge text-bg-light rounded-circle p-2 fs-6">
+              <i class="fa-regular fa-eye"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    }
+  </owl-carousel-o>
+  <button routerLink="/products" class="text-white rounded-2 border-0 px-4 py-2 bg-main d-block m-auto my-4">View All Products</button>
+</section>
+
+<hr>
+
+<!-- Categories Section -->
+<section class="my-5 py-5">
+  <div class="d-flex align-items-center">
+    <div class="header"></div>
+    <span class="ms-2 main-color fw-semibold">Categories</span>
+  </div>
+  <div class="d-flex my-4">
+    <h2 class="fs-2">Browse By Categories</h2>
+  </div>
+
+  <owl-carousel-o [options]="customOptions">
     @for (cat of categoryList; track cat._id) {
     <ng-template carouselSlide>
-      <div>
-        <img [src]="cat.image" class="w-100" height="250px" [alt]="cat.name" />
-        <h3>{{ cat.name }}</h3>
+      <div class="px-2">
+        <div class="card border-0 position-relative hover-shadow h-100">
+          <div class="position-relative">
+            <img [src]="cat.image" class="card-img-top w-100 object-fit-contain" height="200px" [alt]="cat.name">
+          </div>
+          <div class="card-body text-center">
+            <h6 class="card-text">{{cat.name}}</h6>
+            <div class="price my-2">
+              <span class="text-danger fw-bold">{{cat.slug}}</span>
+            </div>
+          </div>
+        </div>
       </div>
     </ng-template>
     }
   </owl-carousel-o>
 </section>
 
-<section class="popular-products py-5">
-  <div class="container">
-    <h2 class="section-title text-center mb-4">Popular Products</h2>
+<hr>
 
-    <!-- Search Input -->
-    <!-- Search Input -->
-    <div class="search-container text-center mb-5">
-      <div class="input-group w-50 mx-auto">
-        <input
-          [(ngModel)]="TextSearch"
-          class="form-control search-input"
-          type="search"
-          placeholder="Search For Products"
-          aria-label="Search"
-        />
-        <button class="btn btn-primary search-button" type="button">
-          <i class="fas fa-search"></i>
-        </button>
-      </div>
-    </div>
+<!-- Best Selling Section -->
+<section class="my-5 py-5">
+  <div class="d-flex align-items-center">
+    <div class="header"></div>
+    <span class="ms-2 main-color fw-semibold">This Month</span>
+  </div>
+  <div class="d-flex my-4 justify-content-between w-100">
+    <h2 class="fs-2">Best Selling Products</h2>
+    <button routerLink="/products" class="text-white rounded-2 border-0 px-4 py-2 bg-main my-4">View All</button>
+  </div>
 
-    <div class="row g-4">
-      @for (Product of productList.slice(0, 12) | search:TextSearch; track
-      Product.id) {
-      <div class="col-md-3">
-        <div class="product-card card h-100 shadow-sm">
-          <div
-            [routerLink]="['/detailsProduct', Product.id]"
-            class="text-decoration-none text-dark"
-          >
-            <img
-              [src]="Product.imageCover"
-              [alt]="Product.title"
-              class="product-image card-img-top"
-            />
-            <div class="card-body">
-              <h3 class="small text-main">{{ Product.category.name }}</h3>
-              <h3 class="product-title card-title">
-                {{ Product.title | textTermPipe : 5 }}
-              </h3>
-              <p class="product-description card-text">
-                {{ Product.description | textTermPipe : 10 }}
+  <owl-carousel-o [options]="customOptions">
+    @for (product of productList.slice(11,17); track product._id) {
+    <ng-template carouselSlide>
+      <div class="px-2">
+        <div class="card border-0 position-relative hover-shadow h-100">
+          <div class="position-relative">
+            <img [src]="product.imageCover" class="card-img-top" [alt]="product.title">
+            <button (click)="AddToCart(product._id)"
+                    class="position-absolute bg-black text-white py-2 border-0 opacity-0 transition-opacity rounded-1 hover:opacity-100"
+                    style="bottom: 0;width: 90%; left: 50%; transform: translateX(-50%); transition-duration: .4s;">
+              <i class="fa-solid fa-cart-plus"></i> Add To Cart
+            </button>
+          </div>
+          <div class="card-body">
+            <h6 class="card-text">{{product.title}}</h6>
+            <div class="price my-2 d-flex align-items-center">
+              <span class="text-danger fw-bold">{{product.price}}$</span>
+              <span class="text-muted text-decoration-line-through ms-2">$300</span>
+              <p class="ms-3 mb-0">
+                <i class="text-warning fa-solid fa-star"></i>
+                <i class="text-warning fa-solid fa-star"></i>
+                <i class="text-warning fa-solid fa-star"></i>
+                <i class="text-warning fa-solid fa-star"></i>
+                <i class="text-warning fa-solid fa-star-half-stroke"></i>
+                <span class="text-muted">({{product.ratingsQuantity}})</span>
               </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="product-price fw-bold"
-                  >{{ Product.price }} EGP</span
-                >
-                <div class="product-rating">
-                  <span><i class="fas fa-star rating-color"></i></span>
-                  <span class="text-muted">{{ Product.ratingsAverage }}</span>
-                </div>
-              </div>
             </div>
           </div>
-          <div class="card-footer bg-transparent border-0">
-            <button
-              class="btn btn-primary w-100"
-              (click)="AddToCart(Product.id)"
-            >
-              Add To Cart
-            </button>
+          <div class="view position-absolute d-flex flex-column gap-2 mt-3">
+            <span type="button" (click)="AddToCart(product._id)" class="badge text-bg-light rounded-circle p-2 fs-6">
+              <i class="fa-regular fa-heart"></i>
+            </span>
+            <span type="button" [routerLink]='["/productDetails",product._id]' class="badge text-bg-light rounded-circle p-2 fs-6">
+              <i class="fa-regular fa-eye"></i>
+            </span>
+          </div>
+          <div class="sale position-absolute mt-3">
+            <span class="badge text-white bg-btn">New</span>
           </div>
         </div>
       </div>
+    </ng-template>
+    }
+  </owl-carousel-o>
+</section>
+
+
+
+<!-- products -->
+<section class="my-5 py-5" >
+  <div class="d-flex align-items-center">
+    <div class="header">
+    </div>
+    <span class="ms-2 main-color fw-semibold">Our Products</span>
+  </div>
+  <div class=" d-flex my-4 ">
+    <h2 class="fs-2">Explore Our Products</h2>
+
+
+  </div>
+
+  <div class="card-product overflow-hidden">
+    <div class="row gy-3">
+      @for (product of productList.slice(-8); track product._id) {
+        <div class="col-md-3 col-sm-6">
+          <div class="card border-0 position-relative hover-shadow">
+            <!-- Product Image Container -->
+            <div class="position-relative">
+              <img [src]="product.imageCover" class="card-img-top" [alt]="product.title">
+
+              <!-- Add to Cart Button (Inside Image Area) -->
+              <button (click)="AddToCart(product._id)" class="position-absolute bg-black text-white py-2 border-0 opacity-0 transition-opacity rounded-1 hover:opacity-100"
+                style="bottom: 0;width: 90%; left: 50%; transform: translateX(-50%); transition-duration: .4s;">
+                <i class="fa-solid fa-cart-plus"></i> Add To Cart
+              </button>
+            </div>
+
+            <div class="card-body">
+              <!-- Product Name -->
+              <h6 class="card-text">{{ product.title }}</h6>
+
+              <!-- Price -->
+              <div class="price my-2 d-flex">
+                <span class="text-danger fw-bold">{{ product.price }}$</span>
+                <p class="ms-3">
+                  <i class="text-warning fa-solid fa-star"></i>
+                  <i class="text-warning fa-solid fa-star"></i>
+                  <i class="text-warning fa-solid fa-star"></i>
+                  <i class="text-warning fa-solid fa-star"></i>
+                  <i class="text-warning fa-solid fa-star-half-stroke"></i>
+                  <span class="text-muted">({{ product.ratingsQuantity }})</span>
+                </p>
+              </div>
+
+              <!-- Star Rating -->
+
+            </div>
+
+            <!-- Icons (Wishlist & View) -->
+            <div class="view position-absolute d-flex flex-column gap-2 mt-3">
+              <span type="button" (click)="AddToCart(product._id)" class="badge text-bg-light rounded-circle p-2 fs-6">
+                <i class="fa-regular fa-heart"></i>
+              </span>
+              <span
+              type="button" [routerLink]='["/productDetails",product._id]'
+              class="badge text-bg-light rounded-circle p-2 fs-6">
+                <i class="fa-regular fa-eye"></i>
+              </span>
+            </div>
+
+            <div class="sale position-absolute mt-3">
+              <span class="badge text-white bg-btn">New</span>
+            </div>
+          </div>
+
+
+        </div>
       }
     </div>
   </div>
+
+  <button routerLink="/products" class="text-white rounded-2 border-0 px-4 py-2 bg-main d-block m-auto my-4">View All Products</button>
+
 </section>
+
+<!-- music -->
+<section>
+  <div class="bg-black rounded-1">
+    <div class="row">
+      <div class="col-md-10 m-auto">
+        <div class="row py-3">
+          <div class="col-md-7 d-flex flex-column justify-content-center align-items-md-start align-items-center">
+            <span class="btn-color">Categories</span>
+            <h1 class="text-white my-4">Enhance Your<br> Music Experience</h1>
+            <div class="d-flex text-center gap-3">
+              <div class="count bg-white "> <span class="fw-bold">23</span><br>Hours</div>
+              <div class="count bg-white "> <span class="fw-bold">3</span><br>Days</div>
+              <div class="count bg-white "> <span class="fw-bold">59</span><br>Minutes</div>
+              <div class="count bg-white "> <span class="fw-bold">35</span><br>seconds</div>
+            </div>
+            <div><button class="text-white rounded-2 border-0 px-4 py-2 bg-btn my-5">Buy Now</button></div>
+          </div>
+          <div class="col-md-5">
+            <img src="/assets/images/music.png" class="w-100 img-buy" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="py-5">
+  <div class="row">
+    <div class="col-md-10 m-auto">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="inner text-center">
+            <div class="bg-black icon rounded-circle d-flex justify-content-center align-items-center m-auto">
+              <i class="fa-solid fa-truck-fast text-white text-center"></i>
+            </div>
+            <p class="fw-bold mt-3 mb-0">FREE AND FAST DELIVERY
+            </p>
+            <span>Free delivery for all orders over $140</span>
+
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="inner text-center">
+            <div class="bg-black icon rounded-circle d-flex justify-content-center align-items-center m-auto">
+              <i class="fa-solid fa-headset text-white"></i>
+            </div>
+            <p class="fw-bold mt-3 mb-0">24/7 CUSTOMER SERVICE
+            </p>
+            <span>Friendly 24/7 customer support</span>
+
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="inner text-center">
+            <div class="bg-black icon rounded-circle d-flex justify-content-center align-items-center m-auto">
+              <i class="fa-solid fa-file-circle-check text-white"></i>
+            </div>
+            <p class="fw-bold mt-3 mb-0">MONEY BACK GUARANTEE
+            </p>
+            <span>We reurn money within 30 days</span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
